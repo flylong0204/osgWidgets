@@ -36,3 +36,9 @@ Makefile*
 # QtCtreator CMake
 CMakeLists.txt.user
 
+#------------------
+/bin
+/build
+/data
+/osg
+/3rd
