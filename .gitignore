@@ -40,6 +40,5 @@ CMakeLists.txt.user
 /bin
 /build
 /data
-/osg
-/3rd
+/sdk
 
