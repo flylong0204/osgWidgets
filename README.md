@@ -1,8 +1,8 @@
 # osgWidgets
 
-* osgBasic: 最简单的osg加载模型示例
+* osgBasic： 最简单的osg加载模型示例
 
-* osgWidgetBasic: osg与qt结合显示模型
+* osgWidgetBasic： osg与qt结合显示模型
 
 * SuperPointer： 超级指针
 
