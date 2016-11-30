@@ -3,18 +3,18 @@ TARGET = osgBasic
 TEMPLATE = app
 
 
-SOURCES += main.cpp \
+SOURCES += main.cpp
 
-HEADERS  += \
+HEADERS  +=
 
-FORMS    += \
+FORMS    +=
 
 
-INCLUDEPATH += $$PWD/../3rd/include
-INCLUDEPATH += $$PWD/../osg/include
+INCLUDEPATH += $$PWD/../sdk/3rd/include
+INCLUDEPATH += $$PWD/../sdk/osg/include
 
-LIBS += -L"$$PWD/../3rd/lib"
-LIBS += -L"$$PWD/../osg/lib"
+LIBS += -L"$$PWD/../sdk/3rd/lib"
+LIBS += -L"$$PWD/../sdk/osg/lib"
 
 CONFIG(release, debug|release){
     LIBS +=  -lOpenThreads \
