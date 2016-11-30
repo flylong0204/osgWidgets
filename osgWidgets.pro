@@ -1,4 +1,5 @@
 TEMPLATE = subdirs
 SUBDIRS += osgBasic \
     osgWidgetBasic \
-    SuperPointer
+    SuperPointer \
+    ViewerEvent
