@@ -1,3 +1,4 @@
 TEMPLATE = subdirs
 SUBDIRS += osgBasic \
-    osgWidgetBasic
+    osgWidgetBasic \
+    SuperPointer
