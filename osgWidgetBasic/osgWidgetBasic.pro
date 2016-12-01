@@ -4,38 +4,17 @@
 #
 #-------------------------------------------------
 
-QT       += core gui opengl widgets
+QT       += core gui
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = osgWidgetBasic
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp\
+        mainwindow.cpp
 
-HEADERS  +=
+HEADERS  += mainwindow.h
 
-FORMS    +=
-
-INCLUDEPATH += $$PWD/../sdk/3rd/include
-INCLUDEPATH += $$PWD/../sdk/osg/include
-
-LIBS += -L"$$PWD/../sdk/3rd/lib"
-LIBS += -L"$$PWD/../sdk/osg/lib"
-
-CONFIG(release, debug|release){
-    LIBS +=  -lOpenThreads \
-             -losg \
-             -losgDB \
-             -losgViewer \
-             -losgGA \
-}else{
-    LIBS += -lOpenThreadsd \
-            -losgd \
-            -losgDBd \
-            -losgViewerd \
-            -losgGAd \
-}
-
-DESTDIR = $$PWD/../bin
-DLLDESTDIR = $$PWD/../bin
+FORMS    += mainwindow.ui
