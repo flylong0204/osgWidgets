@@ -155,11 +155,11 @@ void AdapterWidget::mousePressEvent(QMouseEvent* event)
     int button = 0;
     switch (event->button())
     {
-    case Qt::LeftButton: button = 1; break;
-    case Qt::MidButton: button = 2; break;
-    case Qt::RightButton: button = 3; break;
-    case Qt::NoButton: button = 0; break;
-    default: button = 0; break;
+        case Qt::LeftButton: button = 1; break;
+        case Qt::MidButton: button = 2; break;
+        case Qt::RightButton: button = 3; break;
+        case Qt::NoButton: button = 0; break;
+        default: button = 0; break;
     }
     _SetKeyboardModifiers(event);
     _graphicsWindowembedded->getEventQueue()->mouseButtonPress(event->x()*_devicePixelRatio, event->y()*_devicePixelRatio, button);
@@ -170,10 +170,10 @@ void AdapterWidget::mouseReleaseEvent(QMouseEvent* event)
     int button = 0;
     switch (event->button())
     {
-    case Qt::LeftButton: button = 1; break;
-    case Qt::MidButton: button = 2; break;
-    case Qt::RightButton: button = 3; break;
-    case Qt::NoButton: button = 0; break;
+        case Qt::LeftButton: button = 1; break;
+        case Qt::MidButton: button = 2; break;
+        case Qt::RightButton: button = 3; break;
+        case Qt::NoButton: button = 0; break;
     default: button = 0; break;
     }
     _SetKeyboardModifiers(event);
@@ -191,10 +191,10 @@ void AdapterWidget::mouseDoubleClickEvent(QMouseEvent *event)
     int button = 0;
     switch (event->button())
     {
-    case Qt::LeftButton: button = 1; break;
-    case Qt::MidButton: button = 2; break;
-    case Qt::RightButton: button = 3; break;
-    case Qt::NoButton: button = 0; break;
+        case Qt::LeftButton: button = 1; break;
+        case Qt::MidButton: button = 2; break;
+        case Qt::RightButton: button = 3; break;
+        case Qt::NoButton: button = 0; break;
     default: button = 0; break;
     }
     _SetKeyboardModifiers(event);
