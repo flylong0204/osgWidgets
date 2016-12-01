@@ -28,12 +28,14 @@ CONFIG(release, debug|release){
              -losgDB \
              -losgViewer \
              -losgGA \
+             -losgQt \
 }else{
     LIBS += -lOpenThreadsd \
             -losgd \
             -losgDBd \
             -losgViewerd \
             -losgGAd \
+             -losgQtd \
 }
 
 DESTDIR = $$PWD/../bin
