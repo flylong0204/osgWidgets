@@ -20,7 +20,7 @@ int main()
     osg::ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer;
     osg::ref_ptr<osg::Node> node = new osg::Node;
 
-    //得到一个tick值是多少
+    //得到一个tick值是多少(意思大概是能计算的最小时间)
     osg::Timer *timer = new osg::Timer;
     std::cout << timer->getSecondsPerTick() << std::endl;
 
