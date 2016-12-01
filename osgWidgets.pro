@@ -2,7 +2,7 @@ TEMPLATE    =   subdirs
 SUBDIRS     +=  osgBasic \
                 osgWidgetBasic \
                 SuperPointer \
-                ViewerEvent
+                ViewerEvent \
 
 OTHER_FILES +=  README.md \
 
