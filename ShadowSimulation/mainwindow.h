@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ShadowView.h"
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+
+    void _Init();
+    void _TestCow();
+    ShadowViewBasics* osg_widget_;
 };
 
 #endif // MAINWINDOW_H

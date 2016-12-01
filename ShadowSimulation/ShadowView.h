@@ -1,61 +1,51 @@
 #ifndef SHADOWVIEW_H
 #define SHADOWVIEW_H
 
-#include <osg/ArgumentParser>
+#include <QOpenGLWidget>
+#include <unordered_map>
+#include <QInputEvent>
+#include <osgViewer/GraphicsWindow>
+#include <osgGA/GUIEventAdapter>
 #include <osgViewer/Viewer>
-#include <osgViewer/CompositeViewer>
-#include <osgViewer/ViewerEventHandlers>
-#include <osgGA/TrackballManipulator>
-#include <osgDB/ReadFile>
 
-#include <QApplication>
-#include <QString>
-#include <QTimer>
-#include <QKeyEvent>
-#include <QGLWidget>
-#include <QMainWindow>
-#include <QMdiSubWindow>
-#include <QMdiArea>
-using Qt::WindowFlags;
-#include <iostream>
-
-#include <QLabel>
-
-class AdapterWidget : public QGLWidget
+class AdapterWidget : public QOpenGLWidget
 {
 public:
-    AdapterWidget( QWidget * parent = 0, const char * name = 0, const QGLWidget * shareWidget = 0, WindowFlags f = 0 );
+    AdapterWidget( QWidget *parent = 0, Qt::WindowFlags f = 0 );
     virtual ~AdapterWidget(){}
 
-    osgViewer::GraphicsWindow* getGraphicsWindow() { return _gw.get(); }
-    const osgViewer::GraphicsWindow* getGraphicsWindow() const { return _gw.get(); }
+    osgViewer::GraphicsWindow* getGraphicsWindow() { return _graphicsWindowembedded.get(); }
+    const osgViewer::GraphicsWindow* getGraphicsWindow() const { return _graphicsWindowembedded.get(); }
 protected:
     void init();
-    virtual void resizeGL( int width, int height );
-    virtual void keyPressEvent( QKeyEvent* event );
-    virtual void keyReleaseEvent( QKeyEvent* event );
-    virtual void mousePressEvent( QMouseEvent* event );
-    virtual void mouseReleaseEvent( QMouseEvent* event );
-    virtual void mouseMoveEvent( QMouseEvent* event );
-    osg::ref_ptr<osgViewer::GraphicsWindowEmbedded> _gw;
+    virtual void resizeGL( int width, int height ) override;
+    virtual void keyPressEvent( QKeyEvent* event ) override;
+    virtual void keyReleaseEvent( QKeyEvent* event ) override;
+    virtual void mousePressEvent( QMouseEvent* event ) override;
+    virtual void mouseReleaseEvent( QMouseEvent* event ) override;
+    virtual void mouseMoveEvent( QMouseEvent* event ) override;
+    virtual void mouseDoubleClickEvent(QMouseEvent *event) override;
+    virtual void wheelEvent(QWheelEvent* event) override;
+    osg::ref_ptr<osgViewer::GraphicsWindowEmbedded> _graphicsWindowembedded;
+private:
+    void _SetKeyboardModifiers(QInputEvent* event);
+    static std::unordered_map<int, int> _keyMap;
+    qreal _devicePixelRatio;
 };
 
-class ViewerQT : public osgViewer::Viewer, public AdapterWidget
+class ShadowViewBasics : public AdapterWidget, public osgViewer::Viewer
 {
+    Q_OBJECT
+
 public:
-    ViewerQT(QWidget * parent = 0, const char * name = 0, const QGLWidget * shareWidget = 0, WindowFlags f = 0);
-    virtual void paintGL();
+    ShadowViewBasics(QWidget *parent);
+    ~ShadowViewBasics();
 
 protected:
-    QTimer _timer;
+    void initializeGL() override;
+    void paintGL() override;
+    bool event(QEvent* event) override;
 };
 
-//class ShadowViewer : QMainWindow
-//{
-//public:
-//      ShadowViewer()
-//      {
-//      }
-//};
 
 #endif // SHADOWVIEW_H
