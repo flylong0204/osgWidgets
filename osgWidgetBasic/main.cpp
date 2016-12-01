@@ -6,10 +6,10 @@
 #include <osgDB/ReadFile>
 
 #include <QApplication>
-#include <QtCore/QString>
-#include <QtCore/QTimer>
-#include <QtGui/QKeyEvent>
-#include <QtOpenGL/QGLWidget>
+#include <QString>
+#include <QTimer>
+#include <QKeyEvent>
+#include <QGLWidget>
 #include <QMainWindow>
 #include <QMdiSubWindow>
 #include <QMdiArea>
