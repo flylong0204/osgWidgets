@@ -1,8 +1,10 @@
-#include "osgDB/ReadFile"
-#include "osgViewer/Viewer"
-#include "osg/ref_ptr"
-#include "osgViewer/ViewerEventHandlers"
-#include "osgGA/GUIEventHandler"
+#include <osgDB/ReadFile>
+#include <osgViewer/Viewer>
+#include <osg/ref_ptr>
+#include <osgViewer/ViewerEventHandlers>
+#include <osgGA/GUIEventHandler>
+#include <osg/Timer>
+#include <iostream>
 
 class PrintName : public osgGA::GUIEventHandler
 {
@@ -18,9 +20,15 @@ int main()
     osg::ref_ptr<osgViewer::Viewer> viewer = new osgViewer::Viewer;
     osg::ref_ptr<osg::Node> node = new osg::Node;
 
-    node = osgDB::readNodeFile("../data/model/avatar.osg");
+    //得到一个tick值是多少
+    osg::Timer *timer = new osg::Timer;
+    std::cout << timer->getSecondsPerTick() << std::endl;
 
-    viewer->setName("事件");
+    //计算模型加载花费时间
+    osg::Timer_t start_time = timer->tick();
+    node = osgDB::readNodeFile("../data/model/avatar.osg");
+    osg::Timer_t stop_time = timer->tick();
+    std::cout << "读取模型时间:" << timer->delta_s(start_time,stop_time) << std::endl;
 
     //添加帮助事件，h
     viewer->addEventHandler(new osgViewer::HelpHandler);
@@ -28,6 +36,7 @@ int main()
     viewer->addEventHandler(new PrintName);
     //添加帧数事件，s
     viewer->addEventHandler(new osgViewer::StatsHandler);
+
     //添加全屏事件，f
     viewer->addEventHandler(new osgViewer::WindowSizeHandler);
     //添加截图事件，c
