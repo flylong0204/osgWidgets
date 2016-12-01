@@ -1,9 +1,9 @@
 TEMPLATE    =   subdirs
 SUBDIRS     +=  \
-#                osgBasic \
-#                osgWidgetBasic \
-#                SuperPointer \
-#                ViewerEvent \
+                osgBasic \
+                osgWidgetBasic \
+                SuperPointer \
+                ViewerEvent \
                 ShadowSimulation \
 
 OTHER_FILES +=  README.md \

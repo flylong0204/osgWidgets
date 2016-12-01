@@ -1,25 +1,24 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2016-12-01T17:37:21
-#
-#-------------------------------------------------
-
 QT       += core gui opengl widgets
 
-TARGET = ShadowSimulation
+TARGET = ShadowView
 TEMPLATE = app
 
-
-SOURCES += main.cpp\
-        ShadowView.cpp \
-    MainWindow.cpp
-
-HEADERS  += \
-            ShadowView.h \
+HEADERS += \
+    AdapterWidget.h \
+    ShadowViewBasic.h \
+    ShadowView.h \
     MainWindow.h
 
-FORMS    += \
+SOURCES += \
+    main.cpp \
+    AdapterWidget.cpp \
+    ShadowViewBasic.cpp \
+    ShadowView.cpp \
+    MainWindow.cpp
+
+FORMS += \
     MainWindow.ui
+
 
 INCLUDEPATH += $$PWD/../sdk/3rd/x86/include
 INCLUDEPATH += $$PWD/../sdk/osg/x86/include
