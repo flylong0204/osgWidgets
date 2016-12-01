@@ -27,8 +27,9 @@ int main()
     //计算模型加载花费时间
     osg::Timer_t start_time = timer->tick();
     node = osgDB::readNodeFile("../data/model/avatar.osg");
+    std::cout << "方法1.读取模型时间:" << timer->time_s() << std::endl;
     osg::Timer_t stop_time = timer->tick();
-    std::cout << "读取模型时间:" << timer->delta_s(start_time,stop_time) << std::endl;
+    std::cout << "方法2.读取模型时间:" << timer->delta_s(start_time,stop_time) << std::endl;
 
     //添加帮助事件，h
     viewer->addEventHandler(new osgViewer::HelpHandler);
