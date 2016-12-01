@@ -16,11 +16,11 @@ HEADERS  +=
 
 FORMS    +=
 
-INCLUDEPATH += $$PWD/../sdk/3rd/include
-INCLUDEPATH += $$PWD/../sdk/osg/include
+INCLUDEPATH += $$PWD/../sdk/3rd/x86/include
+INCLUDEPATH += $$PWD/../sdk/osg/x86/include
 
-LIBS += -L"$$PWD/../sdk/3rd/lib"
-LIBS += -L"$$PWD/../sdk/osg/lib"
+LIBS += -L"$$PWD/../sdk/3rd/x86/lib"
+LIBS += -L"$$PWD/../sdk/osg/x86/lib"
 
 CONFIG(release, debug|release){
     LIBS +=  -lOpenThreads \

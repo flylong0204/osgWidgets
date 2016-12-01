@@ -11,34 +11,36 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    ShadowView.cpp
+        ShadowView.cpp \
+    MainWindow.cpp
 
-HEADERS  += mainwindow.h \
-    ShadowView.h
+HEADERS  += \
+            ShadowView.h \
+    MainWindow.h
 
-FORMS    += mainwindow.ui
+FORMS    += \
+    MainWindow.ui
 
-INCLUDEPATH += $$PWD/../sdk/3rd/include
-INCLUDEPATH += $$PWD/../sdk/osg/include
+INCLUDEPATH += $$PWD/../sdk/3rd/x86/include
+INCLUDEPATH += $$PWD/../sdk/osg/x86/include
 
-LIBS += -L"$$PWD/../sdk/3rd/lib"
-LIBS += -L"$$PWD/../sdk/osg/lib"
+LIBS += -L"$$PWD/../sdk/3rd/x86/lib"
+LIBS += -L"$$PWD/../sdk/osg/x86/lib"
 
 CONFIG(release, debug|release){
-    LIBS +=  -lOpenThreads \
-             -losg \
-             -losgDB \
-             -losgViewer \
-             -losgGA \
-             -losgQt \
+    LIBS += -lOpenThreads \
+            -losg \
+            -losgDB \
+            -losgViewer \
+            -losgGA \
+            -losgQt \
 }else{
     LIBS += -lOpenThreadsd \
             -losgd \
             -losgDBd \
             -losgViewerd \
             -losgGAd \
-             -losgQtd \
+            -losgQtd \
 }
 
 DESTDIR = $$PWD/../bin

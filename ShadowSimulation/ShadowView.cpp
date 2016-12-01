@@ -49,3 +49,19 @@ void AdapterWidget::mouseMoveEvent( QMouseEvent* event )
 {
     _gw->getEventQueue()->mouseMotion(event->x(), event->y());
 }
+
+ViewerQT::ViewerQT(QWidget *parent, const char *name, const QGLWidget *shareWidget, Qt::WindowFlags f):
+    AdapterWidget( parent, name, shareWidget, f )
+{
+    getCamera()->setViewport(new osg::Viewport(0,0,width(),height()));
+    getCamera()->setProjectionMatrixAsPerspective(30.0f, static_cast<double>(width())/static_cast<double>(height()), 1.0f, 10000.0f);
+    getCamera()->setGraphicsContext(getGraphicsWindow());
+    setThreadingModel(osgViewer::Viewer::SingleThreaded);
+    connect(&_timer, SIGNAL(timeout()), this, SLOT(updateGL()));
+    _timer.start(10);
+}
+
+void ViewerQT::paintGL()
+{
+    frame();
+}

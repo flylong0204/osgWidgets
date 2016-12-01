@@ -1,6 +1,10 @@
 #ifndef SHADOWVIEW_H
 #define SHADOWVIEW_H
 
+#include <osg/ArgumentParser>
+#include <osgViewer/Viewer>
+#include <osgViewer/CompositeViewer>
+#include <osgViewer/ViewerEventHandlers>
 #include <osgGA/TrackballManipulator>
 #include <osgDB/ReadFile>
 
@@ -14,6 +18,8 @@
 #include <QMdiArea>
 using Qt::WindowFlags;
 #include <iostream>
+
+#include <QLabel>
 
 class AdapterWidget : public QGLWidget
 {
@@ -37,23 +43,19 @@ protected:
 class ViewerQT : public osgViewer::Viewer, public AdapterWidget
 {
 public:
-    ViewerQT(QWidget * parent = 0, const char * name = 0, const QGLWidget * shareWidget = 0, WindowFlags f = 0):
-        AdapterWidget( parent, name, shareWidget, f )
-    {
-        getCamera()->setViewport(new osg::Viewport(0,0,width(),height()));
-        getCamera()->setProjectionMatrixAsPerspective(30.0f, static_cast<double>(width())/static_cast<double>(height()), 1.0f, 10000.0f);
-        getCamera()->setGraphicsContext(getGraphicsWindow());
-        setThreadingModel(osgViewer::Viewer::SingleThreaded);
-        connect(&_timer, SIGNAL(timeout()), this, SLOT(updateGL()));
-        _timer.start(10);
-    }
-    virtual void paintGL()
-    {
-        frame();
-    }
+    ViewerQT(QWidget * parent = 0, const char * name = 0, const QGLWidget * shareWidget = 0, WindowFlags f = 0);
+    virtual void paintGL();
 
 protected:
     QTimer _timer;
 };
+
+//class ShadowViewer : QMainWindow
+//{
+//public:
+//      ShadowViewer()
+//      {
+//      }
+//};
 
 #endif // SHADOWVIEW_H
