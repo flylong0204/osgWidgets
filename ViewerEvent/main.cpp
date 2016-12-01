@@ -20,9 +20,18 @@ int main()
 
     node = osgDB::readNodeFile("../data/model/avatar.osg");
 
-    //添加帮助事件
+    viewer->setName("事件");
+
+    //添加帮助事件，h
     viewer->addEventHandler(new osgViewer::HelpHandler);
+    //添加自定义事件，h
     viewer->addEventHandler(new PrintName);
+    //添加帧数事件，s
+    viewer->addEventHandler(new osgViewer::StatsHandler);
+    //添加全屏事件，f
+    viewer->addEventHandler(new osgViewer::WindowSizeHandler);
+    //添加截图事件，c
+    viewer->addEventHandler(new osgViewer::ScreenCaptureHandler);
 
     viewer->setSceneData(node);
     return viewer->run();
