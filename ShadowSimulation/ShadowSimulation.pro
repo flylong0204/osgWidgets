@@ -4,13 +4,13 @@ TARGET = ShadowView
 TEMPLATE = app
 
 HEADERS += \
-    AdapterWidget.h \
+#    AdapterWidget.h \
     ShadowView.h \
     MainWindow.h
 
 SOURCES += \
     main.cpp \
-    AdapterWidget.cpp \
+#    AdapterWidget.cpp \
     ShadowView.cpp \
     MainWindow.cpp
 
