@@ -1,10 +1,25 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
-#include "ShadowViewBasic.h"
 #include <QMainWindow>
+#include <QEvent>
+#include "AdapterWidget.h"
 
-class ShadowView;
+#include <osgViewer/Viewer>
+
+class ShadowViewBasic : public AdapterWidget, public osgViewer::Viewer
+{
+    Q_OBJECT
+
+public:
+    ShadowViewBasic(QWidget *parent);
+    ~ShadowViewBasic(){}
+
+protected:
+    void initializeGL() override;
+    void paintGL() override;
+    bool event(QEvent* event) override;
+};
 
 class ShadowView : public QMainWindow
 {

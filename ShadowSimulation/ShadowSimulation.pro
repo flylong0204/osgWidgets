@@ -5,14 +5,12 @@ TEMPLATE = app
 
 HEADERS += \
     AdapterWidget.h \
-    ShadowViewBasic.h \
     ShadowView.h \
     MainWindow.h
 
 SOURCES += \
     main.cpp \
     AdapterWidget.cpp \
-    ShadowViewBasic.cpp \
     ShadowView.cpp \
     MainWindow.cpp
 
