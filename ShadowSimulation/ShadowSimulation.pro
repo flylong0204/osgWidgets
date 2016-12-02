@@ -20,11 +20,11 @@ FORMS += \
     MainWindow.ui
 
 
-INCLUDEPATH += $$PWD/../sdk/3rd/x86/include
-INCLUDEPATH += $$PWD/../sdk/osg/x86/include
+INCLUDEPATH += $$PWD/../sdk/3rd/x64/include
+INCLUDEPATH += $$PWD/../sdk/osg/x64/include
 
-LIBS += -L"$$PWD/../sdk/3rd/x86/lib"
-LIBS += -L"$$PWD/../sdk/osg/x86/lib"
+LIBS += -L"$$PWD/../sdk/3rd/x64/lib"
+LIBS += -L"$$PWD/../sdk/osg/x64/lib"
 
 CONFIG(release, debug|release){
     LIBS += -lOpenThreads \
