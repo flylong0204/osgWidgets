@@ -34,9 +34,7 @@ private:
     qreal _devicePixelRatio_;
 };
 
-#include <QMainWindow>
 #include <QEvent>
-
 #include <osgViewer/Viewer>
 
 class ShadowViewBasic : public AdapterWidget, public osgViewer::Viewer
@@ -52,6 +50,8 @@ protected:
     void paintGL() override;
     bool event(QEvent* event) override;
 };
+
+#include <QMainWindow>
 
 class ShadowView : public QMainWindow
 {

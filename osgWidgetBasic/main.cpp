@@ -136,6 +136,7 @@ int main( int argc, char *argv[])
     osg::ref_ptr<osg::Node> loadedModel = osgDB::readNodeFile("../data/model/avatar.osg");
     std::cout<<"Using ViewetQT MDI version"<<std::endl;
     ViewerQT* viewerWindow = new ViewerQT;
+    viewerWindow->addEventHandler(new osgViewer::HelpHandler);
     viewerWindow->setCameraManipulator(new osgGA::TrackballManipulator);
     viewerWindow->setSceneData(loadedModel.get());
     QMainWindow* mw = new QMainWindow();

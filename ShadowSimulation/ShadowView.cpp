@@ -1,6 +1,7 @@
 #include "ShadowView.h"
 
 #include <QKeyEvent>
+#include <qDebug>
 
 std::unordered_map<int, int> AdapterWidget::_keyMap = {
     { Qt::Key_Escape, osgGA::GUIEventAdapter::KEY_Escape },
@@ -155,7 +156,7 @@ void AdapterWidget::mousePressEvent(QMouseEvent* event)
     int button = 0;
     switch (event->button())
     {
-        case Qt::LeftButton: button = 1; break;
+        case Qt::LeftButton: button = 1; ;break;
         case Qt::MidButton: button = 2; break;
         case Qt::RightButton: button = 3; break;
         case Qt::NoButton: button = 0; break;
@@ -277,7 +278,6 @@ bool ShadowViewBasic::event(QEvent* event)
 #include <osgGA/StateSetManipulator>
 #include <osgViewer/ViewerEventHandlers>
 #include <osgDB/ReadFile>
-#include <osg/MatrixTransform>
 
 ShadowView::ShadowView(QWidget *parent)
     : QMainWindow(parent),_modelPath("../data/model/text.DAE")
@@ -286,9 +286,10 @@ ShadowView::ShadowView(QWidget *parent)
     _osgWidget->setCameraManipulator(new osgGA::TrackballManipulator);
     _osgWidget->addEventHandler(new osgGA::StateSetManipulator(_osgWidget->getCamera()->getOrCreateStateSet()));
     _osgWidget->addEventHandler(new osgViewer::StatsHandler);
+    _osgWidget->addEventHandler(new osgViewer::HelpHandler);
 
     setCentralWidget(_osgWidget);
-    //setMinimumSize(200, 200);
+    setMinimumSize(100, 100);
 
     _pNode = osgDB::readNodeFile(_modelPath.toStdString().c_str());
     _osgWidget->setSceneData(_pNode);

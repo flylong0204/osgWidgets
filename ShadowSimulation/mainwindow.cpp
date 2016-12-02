@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     _shadowview = new ShadowView(this);
     ui->gridLayout->addWidget(_shadowview);
+    ui->compute->setFocus();
 }
 
 MainWindow::~MainWindow()
