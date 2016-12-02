@@ -14,14 +14,14 @@ public:
     ~AdapterWidget();
 
 protected:
-	void resizeGL(int w, int h) override;
-	void keyPressEvent(QKeyEvent* event) override;
-	void keyReleaseEvent(QKeyEvent* event) override;
-	void mousePressEvent(QMouseEvent* event) override;
-	void mouseReleaseEvent(QMouseEvent* event) override;
-	void mouseMoveEvent(QMouseEvent* event) override;
-	void mouseDoubleClickEvent(QMouseEvent *event) override;
-	void wheelEvent(QWheelEvent* event) override;
+    virtual void resizeGL(int w, int h) override;
+    virtual void keyPressEvent(QKeyEvent* event) override;
+    virtual void keyReleaseEvent(QKeyEvent* event) override;
+    virtual void mousePressEvent(QMouseEvent* event) override;
+    virtual void mouseReleaseEvent(QMouseEvent* event) override;
+    virtual void mouseMoveEvent(QMouseEvent* event) override;
+    virtual void mouseDoubleClickEvent(QMouseEvent *event) override;
+    virtual void wheelEvent(QWheelEvent* event) override;
 
 private:
 	void _SetKeyboardModifiers(QInputEvent* event);

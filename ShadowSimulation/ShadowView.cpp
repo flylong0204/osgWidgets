@@ -60,7 +60,7 @@ bool ShadowViewBasic::event(QEvent* event)
 #include <osg/MatrixTransform>
 
 ShadowView::ShadowView(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow(parent),_modelPath("../data/model/text.DAE")
 {
     _osgWidget = new ShadowViewBasic(this);
     _osgWidget->setCameraManipulator(new osgGA::TrackballManipulator);
@@ -70,7 +70,26 @@ ShadowView::ShadowView(QWidget *parent)
     setCentralWidget(_osgWidget);
     //setMinimumSize(200, 200);
 
-    osg::Node* pNode = osgDB::readNodeFile("../data/model/text.DAE");
-    _osgWidget->setSceneData(pNode);
+    _pNode = osgDB::readNodeFile(_modelPath.toStdString().c_str());
+    _osgWidget->setSceneData(_pNode);
+}
+
+void ShadowView::setModelPath(const QString &path)
+{
+    if(_modelPath != path)
+    {
+        _modelPath = path;
+        _pNode = osgDB::readNodeFile(_modelPath.toStdString().c_str());
+        _osgWidget->setSceneData(_pNode);
+    }
+    else
+    {
+        return;
+    }
+}
+
+QString ShadowView::getModelPath()
+{
+    return _modelPath;
 }
 

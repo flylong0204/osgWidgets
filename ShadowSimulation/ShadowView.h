@@ -28,9 +28,13 @@ class ShadowView : public QMainWindow
 public:
     ShadowView(QWidget *parent = 0);
     ~ShadowView(){}
+    void setModelPath( const QString &path );
+    QString getModelPath();
 
 private:
     ShadowViewBasic* _osgWidget;
+    osg::ref_ptr<osg::Node> _pNode;
+    QString _modelPath;
 };
 
 #endif // CONSOLE_H

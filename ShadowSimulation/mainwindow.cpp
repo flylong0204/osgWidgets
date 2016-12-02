@@ -1,6 +1,7 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
-#include "ShadowView.h"
+#include <qDebug>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,11 +9,30 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ShadowView *shadowview = new ShadowView(this);
-    ui->gridLayout->addWidget(shadowview);
+    _shadowview = new ShadowView(this);
+    ui->gridLayout->addWidget(_shadowview);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_load_clicked()
+{
+    QString filename = QFileDialog::getOpenFileName(this,
+                       tr("选择模型"),
+                       "./../data/model/",
+                       tr("(*.obj *.OBJ *.dxf *.DXF *.osg *.OSG *.dae *.DAE"
+                           "*.3ds *.3DS *.3dx *.3DX *.md2 *.MD2 *.p3d *.P3D);"));
+    if( filename.isEmpty() )
+    {
+        return;
+    }
+    else
+    {
+        ui->model_name->setText( filename );
+        if(_shadowview->getModelPath() != filename)
+            _shadowview->setModelPath( filename );
+    }
 }
