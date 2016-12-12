@@ -217,14 +217,14 @@
            <item>
             <widget class="QDateEdit" name="end_date">
              <property name="displayFormat">
-              <string>dd MMM yyyy</string>
+              <string> yyyy/MM/dd</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QTimeEdit" name="end_time">
              <property name="displayFormat">
-              <string>hh:mm:ss</string>
+              <string> hh:mm:ss</string>
              </property>
              <property name="time">
               <time>
@@ -300,14 +300,14 @@
            <item>
             <widget class="QDateEdit" name="start_date">
              <property name="displayFormat">
-              <string>dd MMM yyyy</string>
+              <string> yyyy/MM/dd</string>
              </property>
             </widget>
            </item>
            <item>
             <widget class="QTimeEdit" name="start_time">
              <property name="displayFormat">
-              <string>hh:mm:ss</string>
+              <string> hh:mm:ss</string>
              </property>
              <property name="time">
               <time>

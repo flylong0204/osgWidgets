@@ -1,11 +1,11 @@
 TEMPLATE    =   subdirs
 SUBDIRS     +=  \
-                osgBasic \
-                osgWidgetBasic \
-                SuperPointer \
-                ViewerEvent \
-                ShadowSimulation \
+#                test/osgBasic \
+#                test/osgWidgetBasic \
+#                test/SuperPointer \
+#                test/ViewerEvent \
+                project/ShadowSimulation \
 
 OTHER_FILES +=  README.md \
 
-RESOURCES   +=  shader.qrc \
+#RESOURCES   +=  shader.qrc \

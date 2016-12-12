@@ -18,11 +18,11 @@ FORMS += \
     MainWindow.ui
 
 
-INCLUDEPATH += $$PWD/../sdk/3rd/x64/include
-INCLUDEPATH += $$PWD/../sdk/osg/x64/include
+INCLUDEPATH += $$PWD/../../sdk/3rd/x64/include
+INCLUDEPATH += $$PWD/../../sdk/osg/x64/include
 
-LIBS += -L"$$PWD/../sdk/3rd/x64/lib"
-LIBS += -L"$$PWD/../sdk/osg/x64/lib"
+LIBS += -L"$$PWD/../../sdk/3rd/x64/lib"
+LIBS += -L"$$PWD/../../sdk/osg/x64/lib"
 
 CONFIG(release, debug|release){
     LIBS += -lOpenThreads \
@@ -40,5 +40,5 @@ CONFIG(release, debug|release){
             -losgQtd \
 }
 
-DESTDIR = $$PWD/../bin
-DLLDESTDIR = $$PWD/../bin
+DESTDIR = $$PWD/../../bin
+DLLDESTDIR = $$PWD/../../bin
